@@ -1,5 +1,6 @@
 # RechercheOperationnelle
-
+`pour ceux qui bossent avec un windows (comme moi) je vous conseille le gitdesktop : https://desktop.github.com/
+`
 
 Pour récuperer le dépot lancer dans le terminal la ligne suivante :
 ```
