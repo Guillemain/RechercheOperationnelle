@@ -8,9 +8,12 @@
 %                   flux.
 %                   Si [i,j] == [pos,pos] => il n'y a pas de chemin
 %                   disponible. (Zuigwang tout ça tout ça)
+%                   
+%                   sens  = 1 si on parcourt dans le sens de la flèche. -1
+%                   si dans l'autre sens. 0 en cas d'immobilisme.
 %   testée.
 
-function [i,j] = TouverAdjacent (A,Ch,pos,sommetsInterdits)
+function [i,j,sens] = TouverAdjacent (A,Ch,pos,sommetsInterdits)
 % 
 % TO DO : Faire en sorte que les pointInterdits ne soient pas disponibles
 % attention toutes fois à ce que les indices soient bien en correspondance
@@ -21,10 +24,10 @@ function [i,j] = TouverAdjacent (A,Ch,pos,sommetsInterdits)
 [MaxLig,IMax] = max(-A(:,pos));
 
 if (MaxCol > MaxLig)
-   i = pos;  j = JMax;
+   i = pos;  j = JMax; sens = 1;
 else
-   i = IMax; j = pos;
+   i = IMax; j = pos;  sens = -1;
 end
 if (max(MaxCol,MaxLig) <= 0) % Problème aucun chemin de disponible
-    i = pos ; j = pos;
+    i = pos ; j = pos; sens = 0;
 end
