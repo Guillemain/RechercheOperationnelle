@@ -1,0 +1,10 @@
+function Phi = CreerChemin(A,strat,depart)
+switch strat
+    otherwise
+        iterationMax = 100; nbIt = 0;
+        Phi = Zeros(size(A));
+        pos = depart;
+        while ((nbIt < iterationMax)  
+        
+end
+end
