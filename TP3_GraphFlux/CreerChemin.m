@@ -31,11 +31,12 @@ switch strat
                else
                    pos = i;
                end
+               beta = min(A(find(Phi == 1)));
            else
                Phi = zeros(size(A));
                beta = 0;
            end
         end
 end
-beta = min(A(find(Phi == 1)));
+
 end
