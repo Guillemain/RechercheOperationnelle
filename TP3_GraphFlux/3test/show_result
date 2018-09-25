@@ -1,0 +1,6 @@
+
+
+python3 Csv2Graph.py $1 $2 $3 "out.tex"
+latex out.tex > /dev/null
+dvipdf out.dvi
+
