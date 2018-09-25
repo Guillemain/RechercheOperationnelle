@@ -14,11 +14,10 @@
 %   testée.
 
 function [i,j,sens] = TouverAdjacent (As,Ch,pos,sommetsInterdits)
-% 
 
 A = As;
 A(sommetsInterdits == 1) = 0;
-% Done
+
 [MaxCol,JMax] = max(A(pos,:));
 [MaxLig,IMax] = max(-A(:,pos));
 

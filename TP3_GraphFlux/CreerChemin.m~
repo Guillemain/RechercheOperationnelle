@@ -21,27 +21,33 @@ switch strat
         PointsInterdits = zeros(size(A));
         Phi = zeros(size(A));
         pos = depart;
-        beta = 0; duper = True;
+        beta = 0; duper = true;
         pileChemin = [pos];
         while ((nbIt < iterationMax) && (pos ~= arrive) && duper)
            nbIt = nbIt +1;
            [i,j,sens] = TouverAdjacent(A,Phi,pos,PointsInterdits);
            if (sens ~= 0)
                Phi(i,j) = 1; Phi(j,i) = -1;
+               PointsInterdits(i,j) = 1;
+               PointsInterdits(j,i) = 1;
                if (sens == 1)
                    pos = j;
                else
                    pos = i;
-                   
                end
                pileChemin = [pileChemin pos];
                beta = min(A(find(Phi == 1)));
            else
-               if (size(PointsInterits,1) > 0)
+               if (size(pileChemin,2) > 0)
+                   disp(pileChemin);
+                   Phi(pos,pileChemin(end)) = 0; %
+                   Phi(pileChemin(end),pos) = 0; %
                    pos = pileChemin(end);
                    pileChemin = pileChemin(1:end-1);
+                   disp(pileChemin);
                else
-                   Phi = zerso(size(A));
+                   duper = false;
+                   Phi = zeros(size(A));
                    beta = 0;
                end
            end

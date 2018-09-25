@@ -38,10 +38,10 @@ switch strat
                pileChemin = [pileChemin pos];
                beta = min(A(find(Phi == 1)));
            else
-               if (size(pileChemin,2) > 0)
-                   Phi(pos,:) = 0;
-                   Phi(:,pos) = 0;
-                   pos = pileChemin(end);
+               if (size(pileChemin,2) > 1)
+                   Phi(pos,pileChemin(end-1)) = 0; %
+                   Phi(pileChemin(end-1),pos) = 0; %
+                   pos = pileChemin(end-1);
                    pileChemin = pileChemin(1:end-1);
                else
                    duper = false;
