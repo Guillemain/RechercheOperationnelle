@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Verification du bon nombre de parametre
+if [ $# != 3 ]
+then
+	echo "exemple d'utilisation : ./show_result.sh Depart.csv Result.csv Mat_P"
+else
+	python3 Csv2Graph.py $1 $2 $3 "out.tex"		# Execution du script python
+	latex out.tex > /dev/null					# Compilation du fichier latex
+	dvipdf out.dvi								# Conversion du latex en pdf
+	evince out.pdf 2> /dev/null					# ouverture du pdf
+fi
