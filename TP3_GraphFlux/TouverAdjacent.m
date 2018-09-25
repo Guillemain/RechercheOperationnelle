@@ -13,13 +13,12 @@
 %                   si dans l'autre sens. 0 en cas d'immobilisme.
 %   testée.
 
-function [i,j,sens] = TouverAdjacent (A,Ch,pos,sommetsInterdits)
+function [i,j,sens] = TouverAdjacent (As,Ch,pos,sommetsInterdits)
 % 
-% TO DO : Faire en sorte que les pointInterdits ne soient pas disponibles
-% attention toutes fois à ce que les indices soient bien en correspondance
-% avec ceux de A (d'où la difficultée de pas 'juste' enlever les
-% pointsInterdits comme ça à la va vite.
 
+A = As;
+A(sommetsInterdits == 1) = 0;
+% Done
 [MaxCol,JMax] = max(A(pos,:));
 [MaxLig,IMax] = max(-A(:,pos));
 
