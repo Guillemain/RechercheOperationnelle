@@ -2,7 +2,7 @@ disp('Quelle stratégie voulez vous lancer ?');
 strax=input('Stratégie du 1er joueur: ','s');
 NBJ=input('Nombre de parties: ');
 
-stray = {'strat_agressive','stackelberg','strat_keran2','noncooperatif','star2016','INOCENTstackelberg'};
+stray = {'strat_agressive','stackelberg','strat_keran2','noncooperatif','star2016','INOCENTstackelberg','cooperatif','strat_random'};
 
 figure
 i = 1;
@@ -19,7 +19,7 @@ for stra = stray
        sy(j+1) = sy(j) + gy(j+1) ; 
 
     end
-    subplot(3,3,i)
+    subplot(2,4,i)
     plot([1:NBJ],sx,[1:NBJ],sy) ;
     xlabel('Numero du jeu') ;
     ylabel('Total des gains') ;
