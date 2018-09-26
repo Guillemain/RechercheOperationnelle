@@ -1,6 +1,7 @@
 function x = strategie(numpart,tx,ty,gx,gy)
 % strategie -- Strategie d'un joueur 
 %
+%
 %  Usage
 %    x = strategie(numpart,tx,ty,gx,gy)
 %
@@ -18,7 +19,7 @@ function x = strategie(numpart,tx,ty,gx,gy)
 if (numpart == 1)
 	x= 0;
 else
-	x = min(3,2*(3-ty(numpart-1))/3 + rand(1,1) * 0.2);
+	x = min(3,2*(3-ty(numpart-1))/3 + rand(1,1) * ((100 - numpart)/100 + 0.2));
     if x ~= 3
         x = max(0,x);
     end
