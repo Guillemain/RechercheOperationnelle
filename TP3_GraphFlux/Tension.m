@@ -14,7 +14,7 @@
 
 % Rajout automatique de la liaison infinie entre depart et arrive
 
-function [Chemin, longueur] = Tension (NSUC, SUC, LONG, depart, arrive)
+function [theta, Chemin, longueur] = Tension (NSUC, SUC, LONG, depart, arrive)
 
     %% Initialisations
     % On ajoute la liaison de depart a arrive
@@ -112,5 +112,6 @@ function [Chemin, longueur] = Tension (NSUC, SUC, LONG, depart, arrive)
     Chemin=PLUSCOURTCHEMIN(1:nsom);
     disp (['Plus court chemin : ',num2str(PLUSCOURTCHEMIN(1:nsom))]);
     disp (['Longueur du plus court chemin : ', num2str(theta(indice))]);
+    theta=[theta(1:start-1) theta(start+1:end)];
     
 end
