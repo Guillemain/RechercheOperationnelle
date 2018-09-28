@@ -48,6 +48,6 @@ for i in range(len(Graph)):
             Out.write("\\path ("+ str(i + 1) +") edge [bend right = -25] node[below =0.15 cm] {$"+ str(Result[i][j])  + '/'+str(Graph[i][j]) +"$} ("+ str(j + 1) +"); \n")
             
 #Ecriture de la fin
-fin = "\\end{tikzpicture}\n\\end{landscape}\n\\end{center}\n\\end{document}"
+fin = "\\end{tikzpicture}\n\\end{center}\n\\end{landscape}\n\\end{document}"
 Out.write(fin)
 
