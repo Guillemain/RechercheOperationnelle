@@ -19,13 +19,14 @@ A = As;
 A(sommetsInterdits == 1) = 0;
 
 [MaxCol,JMax] = max(A(pos,:));
-[MaxLig,IMax] = max(-A(:,pos));
+% [MaxLig,IMax] = max(-A(:,pos));
 
-if (MaxCol > MaxLig)
+% if (MaxCol > MaxLig)
    i = pos;  j = JMax; sens = 1;
-else
-   i = IMax; j = pos;  sens = -1;
-end
-if (max(MaxCol,MaxLig) <= 0) % Problème aucun chemin de disponible
+% else
+%    i = IMax; j = pos;  sens = -1;
+% end
+% if (max(MaxCol,MaxLig) <= 0) % Problème aucun chemin de disponible
+if (MaxCol <= 0) % Problème aucun chemin de disponible
     i = pos ; j = pos; sens = 0;
 end

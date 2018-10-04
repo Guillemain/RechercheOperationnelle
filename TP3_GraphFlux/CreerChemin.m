@@ -12,11 +12,7 @@
 
 
 function [Phi,beta] = CreerChemin(A,strat,depart,arrive)
-switch strat
-    case 1
-        % TO DO : implémentée la commande non implémentée.
-        disp('commande non-implémentée');
-    otherwise
+
         iterationMax = 100; nbIt = 0;
         PointsInterdits = zeros(size(A));
         Phi = zeros(size(A));
@@ -25,7 +21,12 @@ switch strat
         pileChemin = [pos];
         while ((nbIt < iterationMax) && (pos ~= arrive) && duper)
            nbIt = nbIt +1;
-           [i,j,sens] = TouverAdjacent(A,Phi,pos,PointsInterdits);
+           switch strat
+           case 1
+                [i,j,sens] = TouverSommetSuivant(A,Phi,pos,PointsInterdits);
+           otherwise
+                [i,j,sens] = TouverAdjacent(A,Phi,pos,PointsInterdits);
+           end
            if (sens ~= 0)
                Phi(i,j) = 1; Phi(j,i) = -1;
                PointsInterdits(i,j) = 1;
@@ -50,5 +51,5 @@ switch strat
                end
            end
         end
-end
+
 end
