@@ -16,7 +16,7 @@ Out     = open(sys.argv[4],'w') # fichier de sortie.
 
 #Ecriture de l'entete
 
-entete = "\\documentclass {article}\n\\usepackage {tikz}\n\\usepackage{lscape} \n\\usetikzlibrary {positioning}\n\\definecolor {processblue}{cmyk}{0.96,0,0,0}\n\\begin {document}\n\\begin{landscape}\n\\begin {center}\n\\begin {tikzpicture}[-latex ,auto ,node distance =4 cm and 5cm ,on grid ,\nsemithick ,\nstate/.style ={ circle ,top color =white , bottom color = white!20 ,\ndraw,black , text=black , minimum width =1 cm}]\n"
+entete = "\\documentclass {article}\n\\usepackage {tikz}\n\\usepackage{lscape} \n\\usetikzlibrary {positioning}\n\\definecolor {processblue}{cmyk}{0.96,0,0,0}\n\\begin {document}\n\\begin {center}\n\\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 4cm ,on grid ,\nsemithick ,\nstate/.style ={ circle ,top color =white , bottom color = white!20 ,\ndraw,black , text=black , minimum width =0.2cm}]\n"
 Out.write(entete)
 
 ## Placement des Etats sur le graphique.
@@ -48,6 +48,6 @@ for i in range(len(Graph)):
             Out.write("\\path ("+ str(i + 1) +") edge [bend right = -25] node[below =0.15 cm] {$"+ str(Result[i][j])  + '/'+str(Graph[i][j]) +"$} ("+ str(j + 1) +"); \n")
             
 #Ecriture de la fin
-fin = "\\end{tikzpicture}\n\\end{center}\n\\end{landscape}\n\\end{document}"
+fin = "\\end{tikzpicture}\n\\end{center}\n\\end{document}"
 Out.write(fin)
 

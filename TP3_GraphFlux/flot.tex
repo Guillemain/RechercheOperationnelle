@@ -4,12 +4,11 @@
 \usetikzlibrary {positioning}
 \definecolor {processblue}{cmyk}{0.96,0,0,0}
 \begin {document}
-\begin{landscape}
 \begin {center}
-\begin {tikzpicture}[-latex ,auto ,node distance =4 cm and 5cm ,on grid ,
+\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 4cm ,on grid ,
 semithick ,
 state/.style ={ circle ,top color =white , bottom color = white!20 ,
-draw,black , text=black , minimum width =1 cm}]
+draw,black , text=black , minimum width =0.2cm}]
 \node[state] (1) {$1$}; 
 \node[state] (2) [right =of 1] {$2$}; 
 \node[state] (3) [below =of 2] {$3$}; 
@@ -46,5 +45,4 @@ draw,black , text=black , minimum width =1 cm}]
 \path (9) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (10); 
 \end{tikzpicture}
 \end{center}
-\end{landscape}
 \end{document}

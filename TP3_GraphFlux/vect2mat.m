@@ -1,3 +1,11 @@
+%% vect2mat
+%   Parametres :    NSUC = vecteur du nombre des successeurs
+%                   SUC  = vecteur des successeurs
+%                   LONG = poids des liaisions
+%
+%   Resultat :      matrice = matrice conforme aux notations de notre
+%                             script (cf rapport)
+
 function [matrice] = vect2mat(NSUC, SUC, LONG)
     n = size(NSUC,2);
     m = sum(NSUC);

@@ -10,7 +10,6 @@
 %                   Beta = Flot émis sur le chemin.
 % 
 
-
 function [Phi,beta] = CreerChemin(A,strat,depart,arrive)
 
         iterationMax = 100; nbIt = 0;
