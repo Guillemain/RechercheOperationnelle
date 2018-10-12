@@ -1,0 +1,48 @@
+\documentclass {article}
+\usepackage {tikz}
+\usepackage{lscape} 
+\usetikzlibrary {positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+\begin {document}
+\begin {center}
+\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 4cm ,on grid ,
+semithick ,
+state/.style ={ circle ,top color =white , bottom color = white!20 ,
+draw,black , text=black , minimum width =0.2cm}]
+\node[state] (1) {$1$}; 
+\node[state] (2) [right =of 1] {$2$}; 
+\node[state] (3) [below =of 2] {$3$}; 
+\node[state] (4) [below =of 3] {$4$}; 
+\node[state] (5) [below =of 4] {$5$}; 
+\node[state] (6) [right =of 2] {$6$}; 
+\node[state] (7) [below =of 6] {$7$}; 
+\node[state] (8) [below =of 7] {$8$}; 
+\node[state] (9) [below =of 8] {$9$}; 
+\node[state] (10) [right =of 6] {$10$}; 
+\path (1) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (2); 
+\path (1) edge [bend right = -25] node[below =0.15 cm] {$8/20$} (3); 
+\path (1) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (4); 
+\path (1) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (5); 
+\path (2) edge [bend right = -25] node[below =0.15 cm] {$8/8$} (6); 
+\path (2) edge [bend right = -25] node[below =0.15 cm] {$4/4$} (7); 
+\path (3) edge [bend right = -25] node[below =0.15 cm] {$2/3$} (2); 
+\path (3) edge [bend right = -25] node[below =0.15 cm] {$1/5$} (4); 
+\path (3) edge [bend right = -25] node[below =0.15 cm] {$2/5$} (6); 
+\path (3) edge [bend right = -25] node[below =0.15 cm] {$0/7$} (7); 
+\path (3) edge [bend right = -25] node[below =0.15 cm] {$3/3$} (8); 
+\path (4) edge [bend right = -25] node[below =0.15 cm] {$6/6$} (7); 
+\path (4) edge [bend right = -25] node[below =0.15 cm] {$1/1$} (8); 
+\path (4) edge [bend right = -25] node[below =0.15 cm] {$7/7$} (9); 
+\path (5) edge [bend right = -25] node[below =0.15 cm] {$3/4$} (4); 
+\path (5) edge [bend right = -25] node[below =0.15 cm] {$5/5$} (8); 
+\path (5) edge [bend right = -25] node[below =0.15 cm] {$2/2$} (9); 
+\path (6) edge [bend right = -25] node[below =0.15 cm] {$0/2$} (7); 
+\path (6) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (10); 
+\path (7) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (10); 
+\path (8) edge [bend right = -25] node[below =0.15 cm] {$0/3$} (7); 
+\path (8) edge [bend right = -25] node[below =0.15 cm] {$1/5$} (9); 
+\path (8) edge [bend right = -25] node[below =0.15 cm] {$8/20$} (10); 
+\path (9) edge [bend right = -25] node[below =0.15 cm] {$10/10$} (10); 
+\end{tikzpicture}
+\end{center}
+\end{document}
