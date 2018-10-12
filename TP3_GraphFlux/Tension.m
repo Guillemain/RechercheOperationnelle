@@ -6,7 +6,7 @@
 %
 % Representation du graphe
 % Vecteur du nombre de successeurs de chaque sommet :   NSUC
-% Vecteur des successeurs de chaque sommet :            SUC
+% Vecteur des indices des successeurs de chaque sommet :            SUC
 % Vecteur des longueurs des arcs :                      LONG
 % Point de depart :                                     depart
 % Point d'arrive :                                      arrive
