@@ -35,7 +35,7 @@ function [theta, Chemin, longueur] = Tension (NSUC, SUC, LONG, depart, arrive)
     %
     NONMARQUES = X(~MARQUE); % NONMARQUES contient la liste des sommets non marqués
     %
-    PLUSCOURTCHEMIN = uint16(zeros(1,n)); % Vecteur du plus court chemin de 1 (b) à 2 (a)
+    PLUSCOURTCHEMIN = uint16(zeros(1,n)); % Vecteur du plus court chemin de depart à arrive
     PLUSCOURTCHEMIN(1) = depart;
     %
     %% Algorithme de FF
@@ -63,7 +63,29 @@ function [theta, Chemin, longueur] = Tension (NSUC, SUC, LONG, depart, arrive)
                 end
             end
         end
+        
+        %Successeurs des Sommets marqués
+       MARQUES=find(MARQUE==1);
+       for l=1:size(MARQUES,2)
+            i = MARQUES(l); % i est marqué
+            if NSUC(i) ~= 0 % le nombre de successeurs de i est non nul
+                prsuc = sum(NSUC(1:i-1)) + 1; % prsuc contient l'indice du 1er successeur de i dans SUC
+                for k = prsuc:prsuc+NSUC(i)-1
+                    j = SUC(k); % (i,j) est un arc
+                    if MARQUE(j) == 0
+                        % j est un sommet nonmarqué (et i est marqué donc (i,j)
+                        % appartient au cocycle
+                        vcocycle(k) = -1;
+                    end
+                end
+            end
+        end
+                
+        
         theta = theta + beta*vcocycle; %MAJ theta
+        
+        
+        
         %
         %% 2.   Marquer sommets
         liste_candidats_marquage = X(CANDIDATS);
