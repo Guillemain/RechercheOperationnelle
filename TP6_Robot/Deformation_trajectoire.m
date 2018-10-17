@@ -73,14 +73,16 @@ if isfield(T,'nbrecollision')
                 nouveau_pt_controle(1) = pt_collision(1) + lambda * deplacement(1);
                 nouveau_pt_controle(2) = pt_collision(2) + lambda * deplacement(2);
                 
+                mur = 1;
                 if (im(floor(nouveau_pt_controle(1)),floor(nouveau_pt_controle(2))) == 7 ||  im(floor(nouveau_pt_controle(1))+1,floor(nouveau_pt_controle(2))) == 7 ...
                    || im(floor(nouveau_pt_controle(1)),floor(nouveau_pt_controle(2))+1) == 7 ||  im(floor(nouveau_pt_controle(1))+1,floor(nouveau_pt_controle(2)+1)) == 7)
-                
+                     mur = 0.01;
                      cprintf('red','Nouveau point de contrôle dans un mur');
+                     disp(' ');
                 end
                
                
-               poids_n_pt_c = (T(1).nurbs.coefs(4,iref)+T(1).nurbs.coefs(4,iref))/2 * 10; % Il faut donner un poids fort au nouveau pt de controle issu de la collisuon
+               poids_n_pt_c = (T(1).nurbs.coefs(4,iref)+T(1).nurbs.coefs(4,iref))/2 * 10*mur; % Il faut donner un poids fort au nouveau pt de controle issu de la collisuon
                 %
                 T(1).nurbs.coefs(1,iref+1:nbre_pts_controle + 1) = [nouveau_pt_controle(1)*poids_n_pt_c T(1).nurbs.coefs(1,iref+1:nbre_pts_controle)];
                 T(1).nurbs.coefs(2,iref+1:nbre_pts_controle + 1) = [nouveau_pt_controle(2)*poids_n_pt_c T(1).nurbs.coefs(2,iref+1:nbre_pts_controle)];
