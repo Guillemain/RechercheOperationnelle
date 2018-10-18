@@ -29,6 +29,8 @@ function [theta,TempsTotal] = TensionOrdonnancement (NSUC, SUC, LONG, depart, ar
     m = sum(NSUC);
     % Vecteur de la tension courante theta
     theta = zeros(1,m);
+    % Vecteur des potentiels
+    Potentiels=zeros(1,n);
     %
     MARQUE = false(1,n); % MARQUE est un vecteur logique
     MARQUE(arrive) = true; % on marque le sommet arrive
@@ -94,11 +96,13 @@ function [theta,TempsTotal] = TensionOrdonnancement (NSUC, SUC, LONG, depart, ar
                 if arcplein == NSUC(i) 
                      MARQUE(i) = true; % on marque le sommet i
                      NONMARQUES = setdiff(NONMARQUES,i); % on enlève i des sommets non marqués
+                     Potentiels(i)=TempsTotal;
                end
             end
         end
     end
-
+    Potentiels = ones(1,n)*TempsTotal - Potentiels;
     disp (['Temps Total de travail ',num2str(TempsTotal)]);
+    disp (['Potentiel ',num2str(Potentiels)]);
     
 end
