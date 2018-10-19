@@ -32,7 +32,7 @@ ty=zeros(1,NBJ);
 gx=zeros(1,NBJ);
 gy=zeros(1,NBJ);
 %
-for i = 2:NBJ
+for i = 1:NBJ
     tx_aux = feval(strax,i,tx,ty,gx,gy) ;
     ty_aux = feval(stray,i,ty,tx,gy,gx) ;
     tx(i) = tx_aux; ty(i) = ty_aux;			% comme ça, le joueur y n'a pas d'info sur ce que le joueur x a joué, et on respecte l'aspect synchrone du jeu
