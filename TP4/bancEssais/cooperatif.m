@@ -2,7 +2,7 @@ function x = strategie(numpart,tx,ty,gx,gy)
 % strategie -- Strategie d'un joueur 
 %
 %  Usage
-%    x = strategie(numpart,tx,ty,gx,gy)
+%    x = strategie(nx,ny,ng,tx,ty,gx,gy)
 %
 %  Inputs
 %    tx     tableau des strategies jouees par le joueur x
@@ -24,9 +24,5 @@ function x = strategie(numpart,tx,ty,gx,gy)
 %    "L'altruisme perfectionne", J.P. Delahaye, P. Mathieu,
 %    Pour la science No 187, Mai 1993
 %
+x= 0.75;
 
-if (numpart == 1)
-	x= 0;
-else
-	x = (3-ty(numpart-1))/2 ;
-end;

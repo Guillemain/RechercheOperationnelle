@@ -12,21 +12,23 @@ function x = strategie(numpart,tx,ty,gx,gy)
 %
 %  Outputs
 %    x      strategie elaboree par le joueur x
-%
-%  Description
-%    Elaboration d'une strategie dans le cadre de jeux iteres
-%    avec information complete. L'ensemble des strategies est
-%
-%  See also
-%    jeu
-%
-%  References
-%    "L'altruisme perfectionne", J.P. Delahaye, P. Mathieu,
-%    Pour la science No 187, Mai 1993
-%
+%  
+% 
 
-if (numpart == 1)
-	x= 0;
+if (numpart == 1) %premier coup joue
+    
+	x= 1.503; %valeur pour se reconnaitre
+        
 else
-	x = (3-ty(numpart-1))/2 ;
-end;
+    %si c'est moi je coopere
+    if (ty(1) == 1.503)
+        x = 0.75;
+     
+    %si l'autre coopere je coopere
+    elseif (ty(numpart-1) == 0.75)
+        x = 0.75;
+    
+    else
+        x = antiA2(numpart,tx,ty,gx,gy);
+    end
+end

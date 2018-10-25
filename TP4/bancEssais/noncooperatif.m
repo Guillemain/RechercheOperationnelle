@@ -28,5 +28,5 @@ function x = strategie(numpart,tx,ty,gx,gy)
 if (numpart == 1)
 	x= 0;
 else
-	x = (3-ty(numpart-1))/2 ;
+	x = (3-ty(numpart-1))/2;
 end;

@@ -2,12 +2,12 @@ disp('Quelle stratégie voulez vous lancer ?');
 strax=input('Stratégie du 1er joueur: ','s');
 NBJ=input('Nombre de parties: ');
 
-stray = {'strat_agressive','stackelberg','strat_keran2','noncooperatif','star2016','INOCENTstackelberg','cooperatif','strat_random'};
+stray = {'strat_agressive','stackelberg','strat_keran2','noncooperatif','star2016','INOCENTstackelberg','cooperatif','stochastique'};
 
 figure
 i = 1;
 for stra = stray
-    strat = stra{1}
+    strat = stra{1};
     [tx, ty, gx, gy] = jeu(NBJ,strax,strat);
     %fig = afficher(tx,ty,gx,gy,strax,strat);  %<- à décomenter si vous
     %souhaitez avoir le détails contre toutes les tratégie

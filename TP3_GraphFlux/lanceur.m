@@ -18,4 +18,4 @@ POS=[0 1 0; 3 0 4; 0 6 0; 5 0 8;0 7 0; 0 0 2]';
 csvwrite("./plus_court_chemin/pos_tension.csv", POS)
 
 [~, rep_courant]=system('pwd')
-status=unix(strcat(rep_courant,'/show_result.sh plus_court_chemin/mat_depart.csv plus_court_chemin/resultat.csv ./plus_court_chemin/pos_tension.csv ./plus_court_chemin/tension'));
+status=unix(strcat(rep_courant,'/show_result.sh plus_court_chemin/mat_depart.csv plus_court_chemin/resultat.csv ./plus_court_chemin/pos_tension.csv ./plus_court_chemin/tension4'));
