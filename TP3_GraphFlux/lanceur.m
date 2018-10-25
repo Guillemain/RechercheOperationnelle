@@ -1,7 +1,7 @@
 % Creation du graphe pour le plus court chemin
 NSUC = uint16([2 0 3 1 2 3 2 2]);
 SUC = uint16([3 4 4 5 6 8 6 7 4 7 8 5 2 7 2]);
-LONG = [1 2 5 3 3 2 0 3 1 3 7 2 1 2 4];
+LONG =       [1 2 5 3 3 2 0 3 1 3 7 2 1 2 4];
 
 % Matrice de depart
 mat_dep = vect2mat(NSUC, SUC, LONG);
