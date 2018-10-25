@@ -5,7 +5,7 @@
 \definecolor {processblue}{cmyk}{0.96,0,0,0}
 \begin {document}
 \begin {center}
-\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 4cm ,on grid ,
+\begin {tikzpicture}[-latex ,auto ,node distance =4 cm and 3cm ,on grid ,
 semithick ,
 state/.style ={ circle ,top color =white , bottom color = white!20 ,
 draw,black , text=black , minimum width =0.2cm}]
@@ -25,7 +25,7 @@ draw,black , text=black , minimum width =0.2cm}]
 \path (4) edge [bend right = -25] node[below =0.15 cm] {$2/2$} (8); 
 \path (5) edge [bend right = -25] node[below =0.15 cm] {$3/3$} (7); 
 \path (6) edge [bend right = -25] node[below =0.15 cm] {$0/1$} (4); 
-\path (6) edge [bend right = -25] node[below =0.15 cm] {$3/3$} (7); 
+\path (6) edge [bend left = -25]  node[below =0.15 cm] {$3/3$} (7); 
 \path (6) edge [bend right = -25] node[below =0.15 cm] {$1/7$} (8); 
 \path (7) edge [bend right = -25] node[below =0.15 cm] {$1/1$} (2); 
 \path (7) edge [bend right = -25] node[below =0.15 cm] {$0/2$} (5); 
