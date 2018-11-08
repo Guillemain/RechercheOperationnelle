@@ -5,11 +5,11 @@
 % dans un graphe (X,U) modélisé comme un problème de tension maximale
 %
 % Representation du graphe
-% Vecteur du nombre de successeurs de chaque sommet :   NSUC
-% Vecteur des indices des successeurs de chaque sommet :            SUC
-% Vecteur des longueurs des arcs :                      LONG
-% Point de depart :                                     depart
-% Point d'arrive :                                      arrive
+% Vecteur du nombre de successeurs de chaque sommet :       NSUC
+% Vecteur des indices des successeurs de chaque sommet :    SUC
+% Vecteur des longueurs des arcs :                          LONG
+% Point de depart :                                         depart
+% Point d'arrive :                                          arrive
 % Rajout automatique de la liaison infinie entre depart et arrive
 
 function [theta, Chemin, longueur] = Tension (NSUC, SUC, LONG, depart, arrive)

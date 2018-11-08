@@ -37,5 +37,5 @@ for i = 1:NBJ
     ty_aux = feval(stray,i,ty,tx,gy,gx) ;
     tx(i) = tx_aux; ty(i) = ty_aux;			% comme ça, le joueur y n'a pas d'info sur ce que le joueur x a joué, et on respecte l'aspect synchrone du jeu
     [gx(i),gy(i)] = gain(tx(i),ty(i)) ;
-end ;
+end
 
