@@ -8,10 +8,6 @@ t = 4; % nb de crenaux par jours
 c = 2; % nb de promo
 p = 8; % nb de profs
 
-% d = 2;
-% t = 2;
-% c = 2;
-% p = 2;
 
 %Initialisation
 Promo1 = zeros(t,d);

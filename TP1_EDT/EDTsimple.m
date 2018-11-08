@@ -1,5 +1,4 @@
-%Variables 
-
+s%Variables 
 contraintesInegalite = 8;
 contraintesEgalite = 2;
 
@@ -29,8 +28,10 @@ beq = 2*ones(contraintesEgalite,1);
 
 f=[1 1 0 0 1 1 1 1 0 0 1 1];
 
-
+t=cputime;
 x = intlinprog(f,[1:12],A,b,Aeq,beq,0,1);
+tps = cputime-t;
+display("Temps d'exécution de EDTsimple : " + tps*1000 + " ms");
 
 %Reshape
 xTemp = reshape(reshape(x,2,6)',3,4);

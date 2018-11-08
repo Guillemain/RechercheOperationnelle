@@ -1,10 +1,10 @@
-%Graphe des temps d'execution 
+% Graphe des temps d'execution 
 % selon la taille des données 
-% avec le même nombre de données
+% avec le même nombre de contraintes
+coeff = 20;
+valeursTps = courbesTps(coeff);
 
-valeursTps = courbesTps(100);
-
-plot(valeursTps)
+plot(valeursTps,'bo-')
 title("Temps d'exécution")
 xlabel('Coefficient multiplicateur')
 ylabel('Temps en ms')

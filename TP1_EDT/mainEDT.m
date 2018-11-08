@@ -1,5 +1,6 @@
 %Calcul de la solution optimale
-x = solutionEDT();
+[x,tps] = solutionEDT(5);
+display("Temps d'exécution EDTsimple : " + tps*1000 + " ms");
 
 %Mise en forme des matrices des deux promos
 [Promo1, Promo2] = reshapeEDT(x);

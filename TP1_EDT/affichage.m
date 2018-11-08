@@ -26,14 +26,14 @@ function affichage(Promo,i)
     for i= 1:5
         for j= 1:4
           creneau (i,j) = rectangle ('Position',[2*(i-1) 4-j 2 1]);
-          creneau(i,j).FaceColor='white'
+          creneau(i,j).FaceColor='white';
         end
     end
     
     for i=1:5
         for j=1:4
             if Promo(j,i) == 3
-                creneau(i,j).FaceColor='red'
+                creneau(i,j).FaceColor='red';
                 text(2*(i-1)+0.2, 4-j+0.5, 'Droite Maths');
             end
             if Promo(j,i) == 4

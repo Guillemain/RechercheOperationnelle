@@ -1,7 +1,7 @@
-function x = solutionEDT()
+function [x,tps] = solutionEDT(d)
 
 %---------------------- Déclaration des variables ------------------------- 
-d = 5; % nb de jours de cours
+%d = 5; % nb de jours de cours
 t = 4; % nb de crenaux par jours
 c = 2; % nb de promo
 p = 8; % nb de profs 
@@ -14,7 +14,7 @@ n = p*c*d*t;
 A = zeros(contraintesInegalite,n); 
 Aeq = zeros(contraintesEgalite,n);
 
-%% Matrice des contraintes A
+%% Matrice des contraintes A (contraintes avec des inegalites)
 
 % les c*d*t premières lignes, contraintes (3)
 for j = 1:d*t*c
@@ -35,7 +35,7 @@ for j = 1:p*c*d
     A(j + c*d*t + p*d*t,[(j-1)*t+1:j*t]) = 1;
 end
 
-%% Matrice des contraintes Aeq
+%% Matrice des contraintes Aeq (contrainte avec des egalites)
 
 % Contrainte 2
 for i = 0:p*c-1
@@ -87,16 +87,20 @@ beq(16) = 1;
 beq(p*c+1) = 1;  %(6)
 beq(p*c+2) = 1;   %(7)
 
-%%
+%% Foncion a minimiser 
+
 f = zeros(1,n);
 f([1:t:n]) = 1;
 f([t:t:n]) = 1;
 
-%%
+%% Calcul des autres paramètres 
 ub = ones(1,p*d*c*t);
 lb = zeros(1,p*d*c*t);
 
+t=cputime;
 x = intlinprog(f,[1:n],A,b,Aeq,beq,lb,ub);
+tps = cputime-t;
+
 
 end
 
