@@ -136,6 +136,8 @@ end
 %% SIMULATION des deplacements des objets
 Temps_reparation1 = T(1).temps_repar; % Temps de reparation de l'objet 1
 portee = T(1).portee; % horizon du robot 1
+%Script qui permet de déformer la trajectoire du robot k
+
 Nombre_reparations = 0;
 detection = false(1,nombre_objets);
 % detection(i) == 1 si l'objet 1 a detecte l'objet i

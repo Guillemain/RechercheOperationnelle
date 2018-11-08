@@ -1,3 +1,5 @@
+% Script MATLAB utiliser pour modifier la trajectoire de plusieurs robots
+
 %% Deformation de trajectoire
 x_pts_controle_k = T(k).nurbs.coefs(1,:)./T(k).nurbs.coefs(4,:);%collision(1,2,1,1);
 y_pts_controle_k = T(k).nurbs.coefs(2,:)./T(k).nurbs.coefs(4,:);%collision(1,2,2,1);
@@ -41,6 +43,10 @@ lambda = (sumray + marge)/norm(deplacement_k);
 nouveau_pt_controle_k(1) = pt_collision_k(1) + lambda * deplacement_k(1);
 nouveau_pt_controle_k(2) = pt_collision_k(2) + lambda * deplacement_k(2);
 
+
+           
+%On regarde si le nouveau point de controle est dans un mur
+%Si il y est on réduit son poids
 mur_k = 1;
 if (im(floor(nouveau_pt_controle_k(1)),floor(nouveau_pt_controle_k(2))) == 7 ||  im(floor(nouveau_pt_controle_k(1))+1,floor(nouveau_pt_controle_k(2))) == 7 ...
    || im(floor(nouveau_pt_controle_k(1)),floor(nouveau_pt_controle_k(2))+1) == 7 ||  im(floor(nouveau_pt_controle_k(1))+1,floor(nouveau_pt_controle_k(2)+1)) == 7)
@@ -51,7 +57,8 @@ end
 
 
 poids_n_pt_c_k = (T(k).nurbs.coefs(4,iref)+T(k).nurbs.coefs(4,iref))/2 * 10*mur_k; % Il faut donner un poids fort au nouveau pt de controle issu de la collisuon
-%
+%On rajoute le nouveau points de contrôle entre les deux
+%points de contrôle encadrant le point de collision
 T(k).nurbs.coefs(1,iref+1:nbre_pts_controle_k + 1) = [nouveau_pt_controle_k(1)*poids_n_pt_c_k T(k).nurbs.coefs(1,iref+1:nbre_pts_controle_k)];
 T(k).nurbs.coefs(2,iref+1:nbre_pts_controle_k + 1) = [nouveau_pt_controle_k(2)*poids_n_pt_c_k T(k).nurbs.coefs(2,iref+1:nbre_pts_controle_k)];
 T(k).nurbs.coefs(3,:) = 0;
